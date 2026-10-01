@@ -27,3 +27,41 @@ displays a notification.
 
 ### Valid Submission
 ![Valid submission](screenshots/valid_submission.png)
+
+## Activity 2.4 — Docker
+
+The application runs in a Docker container using the dependencies
+listed in `requirements.txt` and the configuration in `Dockerfile`.
+
+### Build the Image
+
+Run from the repository root:
+
+```bash
+docker build -t e444-pra3 .
+```
+
+### Run the Container
+
+```bash
+docker run -d --name pra3-flask -p 5001:5001 e444-pra3
+```
+
+Open http://localhost:5001.
+
+Both the host and container use port 5001 because port 5000
+is occupied by macOS Control Center on the development machine.
+
+### Check Status and Logs
+
+```bash
+docker ps -a
+docker logs pra3-flask
+```
+
+### Stop and Restart the Container
+
+```bash
+docker stop pra3-flask
+docker start pra3-flask
+```
