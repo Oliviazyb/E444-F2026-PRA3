@@ -65,3 +65,31 @@ docker logs pra3-flask
 docker stop pra3-flask
 docker start pra3-flask
 ```
+
+## Activity 2.5 — Chatbot with Memory
+
+Submitting a name and valid UofT email redirects to the chatbot page.
+The page includes a message input, Send button, conversation area,
+and Logout button.
+
+The chatbot stores a name supplied during the conversation in
+`session['chat_name']` and recalls it in a later request.
+
+### Memory Test
+
+1. Send `My name is Alice.`
+2. Confirm the reply is `Nice to meet you, Alice!`
+3. Send `What is my name?`
+4. Confirm the reply is `Your name is Alice.`
+
+### Logout Test
+
+1. Click Logout to clear the session and return home.
+2. Submit the name and UofT email form again.
+3. Ask `What is my name?`
+4. Confirm the chatbot no longer remembers Alice.
+
+Flask's default session stores data in a signed browser cookie.
+The browser sends this cookie with later requests, allowing Flask
+to read the remembered information. Signing protects integrity;
+it does not encrypt the session contents.
